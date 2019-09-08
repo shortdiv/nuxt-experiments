@@ -1,4 +1,4 @@
-exports.handler = (event, context, callback) => {
+exports.handler = function (event, context, callback) {
   const data = [
     {
       "name": "Jampanadas",
@@ -106,12 +106,11 @@ exports.handler = (event, context, callback) => {
       "display_phone": ""
     }
   ]
-  console.log(data)
-  return {
+  callback(null, {
     statusCode: 200,
     body: JSON.stringify({
-      message: "Hello, testing",
+      data: data,
       event
     })
-  }
+  })
 }
